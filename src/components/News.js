@@ -65,12 +65,7 @@ document.title = "News24 - " + capitalize(props.category);
           )}
         </h1>
         {loading && <Spinner />}{" "}
-        <InfiniteScroll
-          dataLength={articles.length}
-          next={fetchMoreData}
-          hasMore={articles.length !== totalResults}
-          loader={<Spinner />}
-        >
+       
           <div className="container">
             <div className="row">
               {" "}
@@ -90,7 +85,7 @@ document.title = "News24 - " + capitalize(props.category);
               })}{" "}
             </div>{" "}
           </div>{" "}
-        </InfiniteScroll>{" "}
+       
       </>
     );
   
