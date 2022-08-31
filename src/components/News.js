@@ -47,7 +47,6 @@ document.title = "News24 - " + capitalize(props.category);
     let data = await fetch(url);
     let parsedData = await data.json();
     setarticles(articles.concat(parsedData.articles))
-    console.log(articles.length);
     settotalResults(parsedData.totalResults);
     setloading(false);
       
@@ -65,27 +64,34 @@ document.title = "News24 - " + capitalize(props.category);
           )}
         </h1>
         {loading && <Spinner />}{" "}
-       
+        <InfiniteScroll
+          dataLength={articles.length}
+          next={fetchMoreData}
+          hasMore={articles.length !== totalResults}
+          loader={<Spinner />}
+        >
           <div className="container">
             <div className="row">
               {" "}
-              {articles.map((element) => {
-                return (
-                  <div className="col-md-4 my-3" key={element.url}>
-                    <NewsItem
-                      title={element.title}
-                      desc={element.description}
-                      urlToImage={element.urlToImage}
-                      url={element.url}
-                      author={element.author}
-                      publishedAt={element.publishedAt}
-                    />
-                  </div>
-                );
-              })}{" "}
+             
+              
+                {articles.map((element) => {
+                  return (
+                    <div className="col-md-4 my-3" key={element.url}>
+                      <NewsItem
+                        title={element.title}
+                        desc={element.description}
+                        urlToImage={element.urlToImage}
+                        url={element.url}
+                        author={element.author}
+                        publishedAt={element.publishedAt}
+                      />
+                    </div>
+                  );  })}
+            
             </div>{" "}
           </div>{" "}
-       
+        </InfiniteScroll>{" "}
       </>
     );
   

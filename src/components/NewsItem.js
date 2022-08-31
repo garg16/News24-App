@@ -13,7 +13,7 @@ const NewsItem = (props)=> {
             <p className="card-text">{desc}</p>
             <p className="card-text"><small className="text-muted">By {!author?"Unknown":author} {new Date(publishedAt).toUTCString()}</small></p>
             <a href={url}  rel="noreferrer" target="_blank" className="btn btn-sm btn-dark">
-              Read more
+              Read more ...
             </a>
           </div>
         </div>
