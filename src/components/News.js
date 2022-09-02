@@ -65,9 +65,9 @@ document.title = "News24 - " + capitalize(props.category);
         </h1>
         {loading && <Spinner />}{" "}
         <InfiniteScroll
-          dataLength={articles.length}
+          dataLength={articles?.length}
           next={fetchMoreData}
-          hasMore={articles.length !== totalResults}
+          hasMore={articles?.length !== totalResults}
           loader={<Spinner />}
         >
           <div className="container">
@@ -75,7 +75,7 @@ document.title = "News24 - " + capitalize(props.category);
               {" "}
              
               
-                {articles.map((element) => {
+                {articles?.map((element) => {
                   return (
                     <div className="col-md-4 my-3" key={element.url}>
                       <NewsItem
