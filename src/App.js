@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
 
 class App extends Component {
+  
+
   state = {
     progress: 10
   }
@@ -28,7 +30,7 @@ class App extends Component {
           />
           <Routes>
 
-            <Route path="/" element={<News  setProgress={this.setProgress} key={"generasdl"} pageSize={5} country="in" category="general" />} />
+            <Route path="/" element={<News  setProgress={this.setProgress} key={"general"} pageSize={5} country="in" category="general" />} />
             <Route path="/business" element={<News  setProgress={this.setProgress} key={"business"} pageSize={5} country="in" category="business" />} />
             <Route path="/entertainment" element={<News  setProgress={this.setProgress} key={"entertainment"} pageSize={5} country="in" category="entertainment" />} />
             <Route path="/health" element={<News  setProgress={this.setProgress} key={"health"} pageSize={5} country="in" category="health" />} />
